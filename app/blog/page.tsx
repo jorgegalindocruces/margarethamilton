@@ -7,9 +7,21 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog - Noticias y Eventos de Programación Infantil en Cádiz',
   description:
-    'Lee las últimas historias, novedades e inspiración del Proyecto Margaret Hamilton.',
+    'Blog del Proyecto Margaret Hamilton: noticias, eventos, talleres de programación en Cádiz. Historias de niños aprendiendo Scratch, hackatones infantiles en colegios públicos. Inspiración y novedades sobre educación tecnológica.',
+  keywords: [
+    'blog programación niños',
+    'eventos tecnológicos Cádiz',
+    'hackatones infantiles',
+    'talleres Expo Innova',
+    'actividades STEM Cádiz',
+    'noticias educación tecnológica',
+  ],
+  openGraph: {
+    title: 'Blog - Programación para Niños en Cádiz',
+    description: 'Noticias, eventos y talleres de programación infantil en colegios públicos de Cádiz.',
+  },
 }
 
 export default function BlogPage() {

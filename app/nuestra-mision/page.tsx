@@ -8,9 +8,21 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Nuestra Misión',
+  title: 'Nuestra Misión - Igualdad de Género en Tecnología para Niños',
   description:
-    'Conoce la misión del Proyecto Margaret Hamilton: cerrar la brecha de género en tecnología desde la infancia con educación accesible e inclusiva.',
+    'Proyecto sin ánimo de lucro en Cádiz que cierra la brecha de género en tecnología. Escuelas de programación gratuitas en colegios públicos con paridad 50/50 niños-niñas. Educación tecnológica accesible e inclusiva para edades de 6 a 12 años.',
+  keywords: [
+    'igualdad de género tecnología',
+    'educación inclusiva Cádiz',
+    'proyecto sin ánimo de lucro',
+    'brecha de género STEM',
+    'programación paridad niños niñas',
+    'voluntariado educación Cádiz',
+  ],
+  openGraph: {
+    title: 'Nuestra Misión - Igualdad en Tecnología desde la Infancia',
+    description: 'Proyecto sin ánimo de lucro en Cádiz. Escuelas de programación gratuitas con paridad 50/50 en colegios públicos.',
+  },
 }
 
 export default function MisionPage() {

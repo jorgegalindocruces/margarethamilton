@@ -24,36 +24,44 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Proyecto Margaret Hamilton | Educación en Programación para Niñas y Niños',
+    default: 'Proyecto Margaret Hamilton | Clases de Programación Gratis para Niños en Cádiz',
     template: '%s | Proyecto Margaret Hamilton',
   },
   description:
-    'Cerramos la brecha de género en tecnología desde la infancia. Escuelas de programación gratuitas en colegios públicos para niñas y niños de 6 a 12 años.',
+    'Escuela de programación gratuita en Cádiz para niños y niñas de 6 a 12 años. Aprende Scratch y programación en colegios públicos. Talleres, cursos y eventos educativos sin ánimo de lucro. ¡Cerramos la brecha de género en tecnología!',
   keywords: [
-    'programación para niños',
-    'educación tecnológica',
-    'igualdad de género',
-    'STEM',
-    'scratch',
-    'colegios públicos',
+    'programación para niños Cádiz',
+    'clases de programación infantil',
+    'aprender scratch Cádiz',
+    'talleres de programación gratis',
+    'escuela de programación Cádiz',
+    'cursos de programación niños',
+    'educación tecnológica Cádiz',
+    'colegios públicos Cádiz',
+    'STEM para niños',
+    'igualdad de género tecnología',
+    'programación infantil gratuita',
+    'actividades extraescolares programación',
     'Margaret Hamilton',
+    'coding para niños',
+    'robótica educativa Cádiz',
   ],
-  authors: [{ name: 'Proyecto Margaret Hamilton' }],
+  authors: [{ name: 'Proyecto Margaret Hamilton Cádiz' }],
   creator: 'Proyecto Margaret Hamilton',
   openGraph: {
     type: 'website',
     locale: 'es_ES',
     url: process.env.NEXT_PUBLIC_SITE_URL,
     siteName: 'Proyecto Margaret Hamilton',
-    title: 'Proyecto Margaret Hamilton | Educación en Programación para Niñas y Niños',
+    title: 'Clases de Programación Gratis para Niños en Cádiz | Proyecto Margaret Hamilton',
     description:
-      'Cerramos la brecha de género en tecnología desde la infancia. Escuelas de programación gratuitas en colegios públicos.',
+      'Escuela de programación gratuita en Cádiz. Cursos de Scratch y coding para niños de 6 a 12 años en colegios públicos. Talleres educativos sin ánimo de lucro.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Proyecto Margaret Hamilton',
+    title: 'Proyecto Margaret Hamilton - Programación para Niños Cádiz',
     description:
-      'Cerramos la brecha de género en tecnología desde la infancia.',
+      'Escuela de programación gratuita en Cádiz. Aprende Scratch y coding en colegios públicos.',
     creator: '@proyectomargarethamilton',
   },
   robots: {

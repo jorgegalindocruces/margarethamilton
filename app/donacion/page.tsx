@@ -5,9 +5,16 @@ import { Section } from '@/components/ui/section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Colabora con nosotros',
+  title: 'Donaciones - Apoya la Educación Tecnológica en Cádiz',
   description:
-    'Ayuda al Proyecto Margaret Hamilton a llevar la programación gratuita a más niñas y niños en etapa escolar.',
+    'Ayuda al Proyecto Margaret Hamilton: donaciones deducibles para llevar programación gratuita a más colegios públicos de Cádiz. Proyecto sin ánimo de lucro que fomenta la igualdad de género en tecnología. Invierte en el futuro de niños y niñas.',
+  keywords: [
+    'donaciones programación niños',
+    'donar proyecto educativo Cádiz',
+    'colaborar sin ánimo lucro',
+    'patrocinio educación tecnológica',
+    'donaciones deducibles Cádiz',
+  ],
 }
 
 export default function DonacionPage() {

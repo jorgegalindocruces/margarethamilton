@@ -12,7 +12,12 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Inicio',
+  title: 'Inicio - Escuela de Programación Gratuita para Niños en Cádiz',
+  description: 'Clases de programación y Scratch gratis para niños de 6 a 12 años en colegios públicos de Cádiz. Talleres educativos, cursos de coding y eventos tecnológicos sin ánimo de lucro. ¡Aprende a programar!',
+  openGraph: {
+    title: 'Proyecto Margaret Hamilton - Programación para Niños en Cádiz',
+    description: 'Escuela de programación gratuita en Cádiz. Más de 60 niños aprenden Scratch y coding en colegios públicos.',
+  },
 }
 
 export default function HomePage() {

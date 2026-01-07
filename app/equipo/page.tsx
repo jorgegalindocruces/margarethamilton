@@ -7,9 +7,16 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Nuestro Equipo',
+  title: 'Equipo de Voluntarios - Únete a Nuestro Proyecto Educativo',
   description:
-    'Conoce al equipo de voluntarios del Proyecto Margaret Hamilton y únete a nosotros.',
+    'Conoce al equipo de educadores voluntarios del Proyecto Margaret Hamilton en Cádiz. Profesionales apasionados enseñando programación y Scratch a niños en colegios públicos. Únete como voluntario y ayuda a cerrar la brecha digital.',
+  keywords: [
+    'voluntariado programación Cádiz',
+    'educadores tecnología',
+    'profesores voluntarios STEM',
+    'equipo proyecto educativo',
+    'ser voluntario programación niños',
+  ],
 }
 
 export default function EquipoPage() {

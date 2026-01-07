@@ -5,9 +5,16 @@ import { Section } from '@/components/ui/section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contacta',
+  title: 'Contacto - Monta una Escuela de Programación en tu Colegio',
   description:
-    'Ponte en contacto con el Proyecto Margaret Hamilton. Te escuchamos y respondemos a todas tus dudas.',
+    'Contacta con el Proyecto Margaret Hamilton en Cádiz. Lanza una escuela de programación en tu colegio público, colabora como voluntario o apoya nuestro proyecto educativo. Respondemos todas tus dudas sobre clases de Scratch y coding para niños.',
+  keywords: [
+    'contacto programación niños',
+    'montar escuela programación',
+    'voluntariado tecnología Cádiz',
+    'colaborar proyecto educativo',
+    'llevar programación colegio',
+  ],
 }
 
 export default function ContactaPage() {
