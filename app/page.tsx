@@ -1,0 +1,253 @@
+import { BlogCard } from '@/components/cards/blog-card'
+import { EventCard } from '@/components/cards/event-card'
+import { CTA } from '@/components/sections/cta'
+import { Features } from '@/components/sections/features'
+import { Hero } from '@/components/sections/hero'
+import { Stats } from '@/components/sections/stats'
+import { Container } from '@/components/ui/container'
+import { Section } from '@/components/ui/section'
+import { getAllBlogPosts, getUpcomingEvents, getAllPartners, getAllTestimonials } from '@/lib/content'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Inicio',
+}
+
+export default function HomePage() {
+  // Get content from MDX files
+  const blogPosts = getAllBlogPosts().slice(0, 3)
+  const events = getUpcomingEvents(3)
+  const partners = getAllPartners()
+  const testimonials = getAllTestimonials().slice(0, 3)
+
+  return (
+    <>
+      {/* Hero Section */}
+      <Hero
+        title="Desarrollamos el talento del futuro, inspirando a las niñas y niños de hoy"
+        subtitle="Proyecto Margaret Hamilton"
+        description="Cerramos la brecha de género en tecnología desde la infancia con escuelas de programación gratuitas en colegios públicos"
+        ctaPrimary={{ text: 'Descubre cómo', href: '/nuestra-mision' }}
+        ctaSecondary={{ text: 'Monta tu escuela', href: '/crea-tu-escuela' }}
+      />
+
+      {/* Stats Section */}
+      <Stats
+        stats={[
+          { label: 'Fondos recibidos', value: '+30K€', icon: '💰' },
+          { label: 'Niños y niñas', value: '+60', icon: '👧👦' },
+          { label: 'Colegios', value: '2', icon: '🏫' },
+          { label: 'Donaciones', value: '+60', icon: '❤️' },
+        ]}
+      />
+
+      {/* Features - Tres Pilares */}
+      <Features
+        title="Nuestros pilares fundamentales"
+        subtitle="Por qué somos diferentes"
+        features={[
+          {
+            title: 'Igualdad Digital',
+            description:
+              'Enfocados en colegios públicos con financiamiento completo. Educación tecnológica accesible para todos.',
+            icon: '🌐',
+          },
+          {
+            title: 'Educación Accesible',
+            description:
+              'Paridad al 50% niños-niñas. Enseñanza desde los 6 a 12 años en entorno diverso e inclusivo.',
+            icon: '📚',
+          },
+          {
+            title: 'Referentes Reales',
+            description:
+              'Inspiramos con historias de pioneras como Margaret Hamilton, mostrando que la tecnología es para todos.',
+            icon: '⭐',
+          },
+        ]}
+      />
+
+      {/* About - Sin ánimo de lucro */}
+      <Section variant="gray">
+        <Container>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+              Proyecto sin ánimo de lucro
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Somos una iniciativa educativa que busca cerrar la brecha de género en
+              tecnología desde la infancia. Llevamos la programación de forma gratuita a
+              colegios públicos, creando espacios inclusivos donde niñas y niños descubren
+              su potencial tecnológico.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Escuelas Activas */}
+      <Section>
+        <Container>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+              Nuestras escuelas activas
+            </h2>
+            <p className="text-lg text-gray-600">
+              2 colegios públicos con programas activos
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                Colegio Público La Hispanidad
+              </h3>
+              <p className="text-gray-600">Cádiz</p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                Colegio Público Reyes Católicos
+              </h3>
+              <p className="text-gray-600">Cádiz</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Upcoming Events */}
+      {events && events.length > 0 && (
+        <Section variant="gray">
+          <Container>
+            <div className="mb-12">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+                Próximos eventos
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {events.map((event) => (
+                <EventCard
+                  key={event.slug}
+                  slug={event.slug}
+                  title={event.title}
+                  description={event.excerpt}
+                  bannerImage={event.bannerImage}
+                  startsAt={event.startsAt}
+                  location={event.location}
+                  organizer={event.organizer}
+                />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* Testimonials */}
+      {testimonials && testimonials.length > 0 && (
+        <Section>
+          <Container>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+                Lo que dicen las familias
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.slug}
+                  className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
+                >
+                  <div className="mb-4 flex gap-1 text-yellow-400">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <span key={i}>★</span>
+                    ))}
+                  </div>
+                  <p className="mb-4 text-gray-700">{testimonial.content}</p>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    {testimonial.role && (
+                      <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* Blog Posts */}
+      {blogPosts && blogPosts.length > 0 && (
+        <Section variant="gray">
+          <Container>
+            <div className="mb-12 flex items-end justify-between">
+              <div>
+                <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+                  Blog y noticias
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="text-primary-600 hover:text-primary-700 font-medium"
+              >
+                Ver todo →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.map((post) => (
+                <BlogCard
+                  key={post.slug}
+                  slug={post.slug}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  coverImage={post.coverImage}
+                  publishedAt={post.date}
+                  authorName={post.author}
+                  categoryTitle={post.category}
+                />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* Partners/Sponsors */}
+      {partners && partners.length > 0 && (
+        <Section>
+          <Container>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+                Patrocinadores y colaboradores
+              </h2>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+              {partners.map((partner) => (
+                <a
+                  key={partner.slug}
+                  href={partner.websiteUrl || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative h-16 w-32 opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                >
+                  <Image
+                    src={partner.logoImage}
+                    alt={partner.name}
+                    fill
+                    className="object-contain"
+                  />
+                </a>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* CTA Final */}
+      <CTA
+        title="¿Te sumas al cambio?"
+        description="Ayúdanos a llevar la programación a más niñas y niños"
+        ctaPrimary={{ text: 'Colabora con nosotros', href: '/donacion' }}
+        ctaSecondary={{ text: 'Contáctanos', href: '/contacta' }}
+      />
+    </>
+  )
+}
