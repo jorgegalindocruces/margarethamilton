@@ -31,12 +31,15 @@ export function Header() {
       <Container>
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
             <img
-              src="/images/logo/logo.svg"
-              alt="Proyecto Margaret Hamilton"
-              className="h-12 w-auto"
+              src="/images/logo/logoMH.svg"
+              alt="Logo Proyecto Margaret Hamilton"
+              className="h-10 w-auto"
             />
+            <div className="text-xl font-heading font-bold text-primary-600">
+              Proyecto Margaret Hamilton
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
