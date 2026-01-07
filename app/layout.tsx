@@ -48,6 +48,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Proyecto Margaret Hamilton Cádiz' }],
   creator: 'Proyecto Margaret Hamilton',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/images/logo/logo.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
@@ -56,6 +61,14 @@ export const metadata: Metadata = {
     title: 'Clases de Programación Gratis para Niños en Cádiz | Proyecto Margaret Hamilton',
     description:
       'Escuela de programación gratuita en Cádiz. Cursos de Scratch y coding para niños de 6 a 12 años en colegios públicos. Talleres educativos sin ánimo de lucro.',
+    images: [
+      {
+        url: '/images/logo/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Proyecto Margaret Hamilton',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -63,6 +76,7 @@ export const metadata: Metadata = {
     description:
       'Escuela de programación gratuita en Cádiz. Aprende Scratch y coding en colegios públicos.',
     creator: '@proyectomargarethamilton',
+    images: ['/images/logo/logo.svg'],
   },
   robots: {
     index: true,

@@ -27,9 +27,11 @@ export function Footer() {
             {/* Brand & Mission */}
             <div className="lg:col-span-1">
               <Link href="/" className="inline-block">
-                <div className="text-2xl font-heading font-bold text-white">
-                  Margaret Hamilton
-                </div>
+                <img
+                  src="/images/logo/logo-blanco.svg"
+                  alt="Proyecto Margaret Hamilton"
+                  className="h-10 w-auto"
+                />
               </Link>
               <p className="mt-4 text-sm leading-relaxed">
                 Desarrollamos el talento del futuro, inspirando a las niñas y niños de hoy
