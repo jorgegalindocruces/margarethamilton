@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
+import { YouTubeEmbed } from '@/components/ui/youtube-embed'
 import { MDXContent } from '@/components/mdx/mdx-content'
 import { getCourseBySlug, getAllCourses } from '@/lib/content'
 import Link from 'next/link'
@@ -70,14 +71,33 @@ export default function CoursePage({ params }: CoursePageProps) {
           </Container>
         </Section>
 
+        {/* Video Embed */}
+        {course.youtubeUrl && (
+          <Section>
+            <Container size="md">
+              <div className="mx-auto max-w-3xl">
+                <h2 className="mb-6 text-2xl font-bold text-gray-900 font-heading">
+                  Video de la clase
+                </h2>
+                <YouTubeEmbed url={course.youtubeUrl} title={course.title} />
+                {course.excerpt && (
+                  <p className="mt-6 text-gray-700 leading-relaxed">
+                    {course.excerpt}
+                  </p>
+                )}
+              </div>
+            </Container>
+          </Section>
+        )}
+
         {/* Resources */}
-        {(course.googleDocUrl || course.youtubeUrl || course.scratchUrl) && (
+        {(course.googleDocUrl || course.scratchUrl) && (
           <Section variant="gray">
             <Container size="md">
               <h2 className="mb-6 text-2xl font-bold text-gray-900 font-heading">
-                Recursos del curso
+                Recursos adicionales
               </h2>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {course.googleDocUrl && (
                   <a
                     href={course.googleDocUrl}
@@ -87,17 +107,6 @@ export default function CoursePage({ params }: CoursePageProps) {
                   >
                     <div className="text-4xl">📄</div>
                     <span className="font-medium text-gray-900">Documento Google</span>
-                  </a>
-                )}
-                {course.youtubeUrl && (
-                  <a
-                    href={course.youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center transition-shadow hover:shadow-md"
-                  >
-                    <div className="text-4xl">▶️</div>
-                    <span className="font-medium text-gray-900">Video YouTube</span>
                   </a>
                 )}
                 {course.scratchUrl && (
