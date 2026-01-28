@@ -14,10 +14,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Inicio - Escuela de Programación para Niños y Niñas en Cádiz',
-  description: 'Clases de programación y Scratch gratis para niños de 6 a 12 años en colegios públicos de Cádiz. Talleres educativos, cursos de coding y eventos tecnológicos sin ánimo de lucro. ¡Aprende a programar!',
+  description: 'Clases de programación y Scratch para niños de 6 a 12 años en colegios públicos de Cádiz. Talleres educativos, cursos de coding y eventos tecnológicos sin ánimo de lucro. ¡Aprende a programar!',
   openGraph: {
     title: 'Proyecto Margaret Hamilton - Programación para Niños en Cádiz',
-    description: 'Escuela de programación gratuita en Cádiz. Más de 60 niños aprenden Scratch y coding en colegios públicos.',
+    description: 'Escuela de programación en Cádiz. Más de 60 niños aprenden Scratch y coding en colegios públicos.',
   },
 }
 
@@ -86,7 +86,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Somos una iniciativa educativa que busca cerrar la brecha de género en
-              tecnología desde la infancia. Llevamos la programación de forma gratuita a
+              tecnología desde la infancia. Llevamos la programación a
               colegios públicos, creando espacios inclusivos donde niñas y niños descubren
               su potencial tecnológico.
             </p>

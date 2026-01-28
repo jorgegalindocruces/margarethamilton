@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Donaciones - Apoya la Educación Tecnológica en Cádiz',
   description:
-    'Ayuda al Proyecto Margaret Hamilton: donaciones deducibles para llevar programación gratuita a más colegios públicos de Cádiz. Proyecto sin ánimo de lucro que fomenta la igualdad de género en tecnología. Invierte en el futuro de niños y niñas.',
+    'Ayuda al Proyecto Margaret Hamilton: donaciones deducibles para llevar programación a más colegios públicos de Cádiz. Proyecto sin ánimo de lucro que fomenta la igualdad de género en tecnología. Invierte en el futuro de niños y niñas.',
   keywords: [
     'donaciones programación niños',
     'donar proyecto educativo Cádiz',
@@ -23,7 +23,7 @@ export default function DonacionPage() {
     <>
       <Hero
         title="Invierte en el futuro"
-        description="Ayúdanos a llevar la programación gratuita a más niñas y niños en etapa escolar"
+        description="Ayúdanos a llevar la programación a más niñas y niños en etapa escolar"
         backgroundImage={getAssetPath('/images/misc/img-2361.jpeg')}
       />
 
@@ -36,7 +36,7 @@ export default function DonacionPage() {
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Tu donación permite que niñas y niños de colegios públicos accedan a educación
-              tecnológica de calidad de forma completamente gratuita. Cada aportación cuenta.
+              tecnológica de calidad. Cada aportación cuenta.
             </p>
           </div>
         </Container>

@@ -7,21 +7,21 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cursos de Programación y Scratch para Niños - Material Educativo Gratuito',
+  title: 'Cursos de Programación y Scratch para Niños - Material Educativo',
   description:
-    '45 cursos gratuitos de Scratch y programación para niños de 6 a 12 años. Videos explicativos, talleres paso a paso y material descargable. Aprende a montar tu propia escuela de programación en colegios públicos. Recursos educativos abiertos de Cádiz.',
+    '45 cursos de Scratch y programación para niños de 6 a 12 años. Videos explicativos, talleres paso a paso y material descargable. Aprende a montar tu propia escuela de programación en colegios públicos. Recursos educativos abiertos de Cádiz.',
   keywords: [
     'cursos scratch niños',
     'tutoriales programación infantil',
     'material educativo programación',
-    'talleres scratch gratis',
+    'talleres scratch',
     'aprender scratch paso a paso',
     'recursos educativos programación',
     'currículum programación niños',
     'videos scratch español',
   ],
   openGraph: {
-    title: '45 Cursos Gratis de Scratch y Programación para Niños',
+    title: '45 Cursos de Scratch y Programación para Niños',
     description: 'Material educativo completo: videos, talleres y recursos descargables para enseñar programación a niños.',
   },
 }

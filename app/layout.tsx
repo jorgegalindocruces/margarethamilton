@@ -31,19 +31,19 @@ export const metadata: Metadata = {
     template: '%s | Proyecto Margaret Hamilton',
   },
   description:
-    'Escuela de programación gratuita en Cádiz para niños y niñas de 6 a 12 años. Aprende Scratch y programación en colegios públicos. Talleres, cursos y eventos educativos sin ánimo de lucro. ¡Cerramos la brecha de género en tecnología!',
+    'Escuela de programación en Cádiz para niños y niñas de 6 a 12 años. Aprende Scratch y programación en colegios públicos. Talleres, cursos y eventos educativos sin ánimo de lucro. ¡Cerramos la brecha de género en tecnología!',
   keywords: [
     'programación para niños Cádiz',
     'clases de programación infantil',
     'aprender scratch Cádiz',
-    'talleres de programación gratis',
+    'talleres de programación',
     'escuela de programación Cádiz',
     'cursos de programación niños',
     'educación tecnológica Cádiz',
     'colegios públicos Cádiz',
     'STEM para niños',
     'igualdad de género tecnología',
-    'programación infantil gratuita',
+    'programación infantil',
     'actividades extraescolares programación',
     'Margaret Hamilton',
     'coding para niños',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     siteName: 'Proyecto Margaret Hamilton',
     title: 'Escuela de Programación para Niños y Niñas en Cádiz | Proyecto Margaret Hamilton',
     description:
-      'Escuela de programación gratuita en Cádiz. Cursos de Scratch y coding para niños de 6 a 12 años en colegios públicos. Talleres educativos sin ánimo de lucro.',
+      'Escuela de programación en Cádiz. Cursos de Scratch y coding para niños de 6 a 12 años en colegios públicos. Talleres educativos sin ánimo de lucro.',
     images: [
       {
         url: '/images/logo/og-image.jpg',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Proyecto Margaret Hamilton - Programación para Niños Cádiz',
     description:
-      'Escuela de programación gratuita en Cádiz. Aprende Scratch y coding en colegios públicos.',
+      'Escuela de programación en Cádiz. Aprende Scratch y coding en colegios públicos.',
     creator: '@proyectomargarethamilton',
     images: ['/images/logo/og-image.jpg'],
   },

@@ -11,7 +11,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Nuestra Misión - Igualdad de Género en Tecnología para Niños',
   description:
-    'Proyecto sin ánimo de lucro en Cádiz que cierra la brecha de género en tecnología. Escuelas de programación gratuitas en colegios públicos con paridad 50/50 niños-niñas. Educación tecnológica accesible e inclusiva para edades de 6 a 12 años.',
+    'Proyecto sin ánimo de lucro en Cádiz que cierra la brecha de género en tecnología. Escuelas de programación en colegios públicos con paridad 50/50 niños-niñas. Educación tecnológica accesible e inclusiva para edades de 6 a 12 años.',
   keywords: [
     'igualdad de género tecnología',
     'educación inclusiva Cádiz',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Nuestra Misión - Igualdad en Tecnología desde la Infancia',
-    description: 'Proyecto sin ánimo de lucro en Cádiz. Escuelas de programación gratuitas con paridad 50/50 en colegios públicos.',
+    description: 'Proyecto sin ánimo de lucro en Cádiz. Escuelas de programación con paridad 50/50 en colegios públicos.',
   },
 }
 
@@ -252,7 +252,7 @@ export default function MisionPage() {
                 </h3>
                 <p className="text-gray-700">
                   Cerrar la brecha de género en tecnología desde la infancia mediante escuelas
-                  de programación gratuitas en colegios públicos.
+                  de programación en colegios públicos.
                 </p>
               </div>
               <div>
