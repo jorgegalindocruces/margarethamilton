@@ -3,7 +3,7 @@ import { Hero } from '@/components/sections/hero'
 import { Stats } from '@/components/sections/stats'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
-import { getAllTeamMembers, getAllTestimonials, getAllPartners } from '@/lib/content'
+import { getAllTeamMembers, getAllTestimonials, getAllPartners, getAllSchools } from '@/lib/content'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
@@ -29,12 +29,14 @@ export default function MisionPage() {
   const teamMembers = getAllTeamMembers()
   const testimonials = getAllTestimonials()
   const partners = getAllPartners()
+  const schools = getAllSchools()
 
   return (
     <>
       <Hero
         title="Nuestra misión: Desarrollamos el talento del futuro, inspirando a las niñas y niños de hoy"
         description="¿Te sumas al cambio?"
+        backgroundImage="/images/misc/img-3.jpeg"
       />
 
       {/* Pilares Fundamentales */}
@@ -71,6 +73,42 @@ export default function MisionPage() {
           { label: 'Donaciones', value: '+60', icon: '❤️' },
         ]}
       />
+
+      {/* Escuelas Activas */}
+      {schools && schools.length > 0 && (
+        <Section>
+          <Container>
+            <h2 className="mb-12 text-3xl font-bold text-gray-900 font-heading sm:text-4xl text-center">
+              Escuelas Activas
+            </h2>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {schools.map((school) => (
+                <div
+                  key={school.slug}
+                  className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+                >
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={school.image}
+                      alt={school.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                      {school.name}
+                    </h3>
+                    {school.location && (
+                      <p className="text-gray-600">{school.location}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Misión detallada */}
       <Section variant="gray">

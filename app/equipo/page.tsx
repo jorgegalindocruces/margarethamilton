@@ -27,6 +27,7 @@ export default function EquipoPage() {
       <Hero
         title="Nuestro equipo de voluntarios"
         description="Personas apasionadas por la educación y la tecnología, trabajando juntas para cerrar la brecha de género"
+        backgroundImage="/images/misc/img-9982.jpg"
       />
 
       {/* Team Members */}

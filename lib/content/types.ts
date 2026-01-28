@@ -84,4 +84,16 @@ export interface Partner {
   content: string
 }
 
-export type ContentItem = BlogPost | Event | Course | TeamMember | Testimonial | Partner
+export interface School {
+  type: 'school'
+  slug: string
+  name: string
+  description?: string
+  image: string
+  location?: string
+  orderIndex?: number
+  active: boolean
+  content: string
+}
+
+export type ContentItem = BlogPost | Event | Course | TeamMember | Testimonial | Partner | School

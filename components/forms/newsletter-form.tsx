@@ -17,7 +17,7 @@ export function NewsletterForm({ sourcePath }: { sourcePath?: string }) {
     const formData = new FormData(e.currentTarget)
 
     try {
-      const response = await fetch('https://formspree.io/f/xvgonrqy', {
+      const response = await fetch('https://formspree.io/f/xdaznvbp', {
         method: 'POST',
         body: formData,
         headers: {

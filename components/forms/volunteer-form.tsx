@@ -26,7 +26,7 @@ export function VolunteerForm() {
     const formDataObj = new FormData(e.currentTarget)
 
     try {
-      const response = await fetch('https://formspree.io/f/xanygjow', {
+      const response = await fetch('https://formspree.io/f/xvzrpnlk', {
         method: 'POST',
         body: formDataObj,
         headers: {

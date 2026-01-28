@@ -6,7 +6,7 @@ import { Hero } from '@/components/sections/hero'
 import { Stats } from '@/components/sections/stats'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
-import { getAllBlogPosts, getUpcomingEvents, getAllPartners, getAllTestimonials } from '@/lib/content'
+import { getAllBlogPosts, getUpcomingEvents, getAllPartners, getAllTestimonials, getAllSchools } from '@/lib/content'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -26,6 +26,7 @@ export default function HomePage() {
   const events = getUpcomingEvents(3)
   const partners = getAllPartners()
   const testimonials = getAllTestimonials().slice(0, 3)
+  const schools = getAllSchools()
 
   return (
     <>
@@ -36,6 +37,7 @@ export default function HomePage() {
         description="Cerramos la brecha de género en tecnología desde la infancia con escuelas de programación gratuitas en colegios públicos"
         ctaPrimary={{ text: 'Descubre cómo', href: '/nuestra-mision' }}
         ctaSecondary={{ text: 'Monta tu escuela', href: '/crea-tu-escuela' }}
+        videoBackground="1011818557"
       />
 
       {/* Stats Section */}
@@ -75,7 +77,7 @@ export default function HomePage() {
       />
 
       {/* About - Sin ánimo de lucro */}
-      <Section variant="gray">
+      <Section backgroundImage="/images/misc/img-1.jpeg" overlayOpacity="dark">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
@@ -92,32 +94,61 @@ export default function HomePage() {
       </Section>
 
       {/* Escuelas Activas */}
-      <Section>
-        <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
-              Nuestras escuelas activas
-            </h2>
-            <p className="text-lg text-gray-600">
-              2 colegios públicos con programas activos
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                Colegio Público La Hispanidad
-              </h3>
-              <p className="text-gray-600">Cádiz</p>
+      {schools && schools.length > 0 && (
+        <Section>
+          <Container>
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
+                Nuestras escuelas activas
+              </h2>
+              <p className="text-lg text-gray-600">
+                {schools.length} colegios públicos con programas activos
+              </p>
             </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                Colegio Público Reyes Católicos
-              </h3>
-              <p className="text-gray-600">Cádiz</p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {schools.map((school) => (
+                <div
+                  key={school.slug}
+                  className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+                >
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={school.image}
+                      alt={school.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-semibold text-gray-900">
+                      {school.name}
+                    </h3>
+                    {school.location && (
+                      <p className="text-gray-600">{school.location}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-        </Container>
-      </Section>
+
+            {/* CTA Crea tu escuela */}
+            <div className="mt-12 rounded-xl bg-primary-50 p-8 text-center">
+              <h3 className="mb-2 text-2xl font-bold text-gray-900 font-heading">
+                Crea tu propia escuela
+              </h3>
+              <p className="mb-6 text-gray-700">
+                Aquí tienes todo lo necesario para crear tu escuela. Desde el curriculum de los peques a la logística explicada paso a paso.
+              </p>
+              <Link
+                href="/crea-tu-escuela"
+                className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 font-medium text-white transition-colors hover:bg-primary-700"
+              >
+                Todo lo necesario
+              </Link>
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* Upcoming Events */}
       {events && events.length > 0 && (
@@ -148,7 +179,7 @@ export default function HomePage() {
 
       {/* Testimonials */}
       {testimonials && testimonials.length > 0 && (
-        <Section>
+        <Section backgroundImage="/images/misc/img-2.jpeg" overlayOpacity="dark">
           <Container>
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
@@ -252,6 +283,7 @@ export default function HomePage() {
         description="Ayúdanos a llevar la programación a más niñas y niños"
         ctaPrimary={{ text: 'Colabora con nosotros', href: '/donacion' }}
         ctaSecondary={{ text: 'Contáctanos', href: '/contacta' }}
+        backgroundImage="/images/misc/img-4.jpeg"
       />
     </>
   )

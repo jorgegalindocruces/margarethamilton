@@ -8,11 +8,12 @@ interface CTAProps {
   description?: string
   ctaPrimary: { text: string; href: string }
   ctaSecondary?: { text: string; href: string }
+  backgroundImage?: string
 }
 
-export function CTA({ title, description, ctaPrimary, ctaSecondary }: CTAProps) {
+export function CTA({ title, description, ctaPrimary, ctaSecondary, backgroundImage }: CTAProps) {
   return (
-    <Section variant="primary">
+    <Section variant="primary" backgroundImage={backgroundImage} overlayOpacity="light">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface HeroProps {
@@ -8,12 +9,46 @@ interface HeroProps {
   description?: string
   ctaPrimary?: { text: string; href: string }
   ctaSecondary?: { text: string; href: string }
+  videoBackground?: string
+  backgroundImage?: string
 }
 
-export function Hero({ title, subtitle, description, ctaPrimary, ctaSecondary }: HeroProps) {
+export function Hero({ title, subtitle, description, ctaPrimary, ctaSecondary, videoBackground, backgroundImage }: HeroProps) {
+  const hasBackground = videoBackground || backgroundImage
+
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 via-white to-blue-50 py-20 sm:py-28 lg:py-32">
-      <Container>
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 py-20 sm:py-28 lg:py-32">
+      {/* Image Background */}
+      {backgroundImage && !videoBackground && (
+        <>
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 z-10 bg-white/80" />
+        </>
+      )}
+
+      {/* Video Background */}
+      {videoBackground && (
+        <>
+          <div className="absolute inset-0 z-0">
+            <iframe
+              src={`https://player.vimeo.com/video/${videoBackground}?background=1&autoplay=1&loop=1&muted=1&quality=1080p`}
+              className="absolute top-1/2 left-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 scale-150"
+              style={{ border: 'none' }}
+              allow="autoplay; fullscreen"
+              title="Video de fondo"
+            />
+          </div>
+          <div className="absolute inset-0 z-10 bg-white/75" />
+        </>
+      )}
+
+      <Container className={hasBackground ? "relative z-20" : "relative"}>
         <div className="mx-auto max-w-4xl text-center">
           {subtitle && (
             <p className="mb-4 text-lg font-medium text-primary-600">{subtitle}</p>

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import type { BlogPost, Event, Course, TeamMember, Testimonial, Partner } from './types'
+import type { BlogPost, Event, Course, TeamMember, Testimonial, Partner, School } from './types'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
@@ -239,4 +239,20 @@ export function getAllPartners(): Partner[] {
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
 
   return partners
+}
+
+// ============ SCHOOLS ============
+
+export function getAllSchools(): School[] {
+  const files = getFilesFromDirectory('schools')
+
+  const schools = files
+    .map((filename) => {
+      const filePath = path.join(contentDirectory, 'schools', filename)
+      return parseMDXFile<School>(filePath)
+    })
+    .filter((school) => school.active)
+    .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
+
+  return schools
 }

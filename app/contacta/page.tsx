@@ -23,6 +23,7 @@ export default function ContactaPage() {
       <Hero
         title="Contacta con nosotros"
         description="¿Quieres lanzar una escuela, colaborar, aportar ideas o apoyar este proyecto? Escríbenos"
+        backgroundImage="/images/misc/img-9988.jpg"
       />
 
       <Section>

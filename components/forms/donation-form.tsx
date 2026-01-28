@@ -22,7 +22,7 @@ export function DonationForm() {
     const formDataObj = new FormData(e.currentTarget)
 
     try {
-      const response = await fetch('https://formspree.io/f/mldegrdy', {
+      const response = await fetch('https://formspree.io/f/xaqjwzva', {
         method: 'POST',
         body: formDataObj,
         headers: {
