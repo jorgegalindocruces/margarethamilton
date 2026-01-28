@@ -49,7 +49,7 @@ export default function HomePage() {
           {
             title: 'Igualdad Digital',
             description:
-              'Enfocados en colegios públicos con financiamiento completo. Educación tecnológica accesible para todos.',
+              'Enfocados en colegios públicos con coste subvencionado de forma privada. Educación tecnológica accesible para todos.',
             icon: '🌐',
           },
           {

@@ -47,7 +47,7 @@ export default function MisionPage() {
           {
             title: 'Colegios Públicos',
             description:
-              'Enfoque en colegios públicos con financiamiento completo, asegurando acceso universal.',
+              'Enfoque en colegios públicos con coste subvencionado de forma privada, asegurando acceso universal.',
             icon: '🏫',
           },
           {
