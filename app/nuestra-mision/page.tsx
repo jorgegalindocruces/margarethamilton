@@ -4,6 +4,7 @@ import { Stats } from '@/components/sections/stats'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
 import { getAllTeamMembers, getAllTestimonials, getAllPartners, getAllSchools } from '@/lib/content'
+import { getAssetPath } from '@/lib/assets'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
@@ -36,7 +37,7 @@ export default function MisionPage() {
       <Hero
         title="Nuestra misión: Desarrollamos el talento del futuro, inspirando a las niñas y niños de hoy"
         description="¿Te sumas al cambio?"
-        backgroundImage="/images/misc/img-3.jpeg"
+        backgroundImage={getAssetPath('/images/misc/img-3.jpeg')}
       />
 
       {/* Pilares Fundamentales */}

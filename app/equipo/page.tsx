@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/hero'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
 import { getAllTeamMembers } from '@/lib/content'
+import { getAssetPath } from '@/lib/assets'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 
@@ -27,7 +28,7 @@ export default function EquipoPage() {
       <Hero
         title="Nuestro equipo de voluntarios"
         description="Personas apasionadas por la educación y la tecnología, trabajando juntas para cerrar la brecha de género"
-        backgroundImage="/images/misc/img-9982.jpg"
+        backgroundImage={getAssetPath('/images/misc/img-9982.jpg')}
       />
 
       {/* Team Members */}

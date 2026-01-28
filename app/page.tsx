@@ -7,6 +7,7 @@ import { Stats } from '@/components/sections/stats'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
 import { getAllBlogPosts, getUpcomingEvents, getAllPartners, getAllTestimonials, getAllSchools } from '@/lib/content'
+import { getAssetPath } from '@/lib/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -77,7 +78,7 @@ export default function HomePage() {
       />
 
       {/* About - Sin ánimo de lucro */}
-      <Section backgroundImage="/images/misc/img-1.jpeg" overlayOpacity="dark">
+      <Section backgroundImage={getAssetPath('/images/misc/img-1.jpeg')} overlayOpacity="dark">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
@@ -179,7 +180,7 @@ export default function HomePage() {
 
       {/* Testimonials */}
       {testimonials && testimonials.length > 0 && (
-        <Section backgroundImage="/images/misc/img-2.jpeg" overlayOpacity="dark">
+        <Section backgroundImage={getAssetPath('/images/misc/img-2.jpeg')} overlayOpacity="dark">
           <Container>
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold text-gray-900 font-heading sm:text-4xl">
@@ -283,7 +284,7 @@ export default function HomePage() {
         description="Ayúdanos a llevar la programación a más niñas y niños"
         ctaPrimary={{ text: 'Colabora con nosotros', href: '/donacion' }}
         ctaSecondary={{ text: 'Contáctanos', href: '/contacta' }}
-        backgroundImage="/images/misc/img-4.jpeg"
+        backgroundImage={getAssetPath('/images/misc/img-4.jpeg')}
       />
     </>
   )

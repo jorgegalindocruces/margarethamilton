@@ -2,6 +2,7 @@ import { DonationForm } from '@/components/forms/donation-form'
 import { Hero } from '@/components/sections/hero'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
+import { getAssetPath } from '@/lib/assets'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function DonacionPage() {
       <Hero
         title="Invierte en el futuro"
         description="Ayúdanos a llevar la programación gratuita a más niñas y niños en etapa escolar"
-        backgroundImage="/images/misc/img-2361.jpeg"
+        backgroundImage={getAssetPath('/images/misc/img-2361.jpeg')}
       />
 
       {/* Intro */}

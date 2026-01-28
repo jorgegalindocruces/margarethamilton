@@ -5,6 +5,19 @@ import type { BlogPost, Event, Course, TeamMember, Testimonial, Partner, School 
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
+// Get basePath for production builds
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
+// Apply basePath to local image paths
+function withBasePath(imagePath: string | undefined): string | undefined {
+  if (!imagePath) return imagePath
+  // Only apply to local paths starting with /
+  if (imagePath.startsWith('/') && !imagePath.startsWith('//')) {
+    return `${basePath}${imagePath}`
+  }
+  return imagePath
+}
+
 // Generic function to read all files from a directory
 function getFilesFromDirectory(dir: string): string[] {
   const fullPath = path.join(contentDirectory, dir)
@@ -16,13 +29,21 @@ function getFilesFromDirectory(dir: string): string[] {
   return fs.readdirSync(fullPath).filter((file) => file.endsWith('.mdx'))
 }
 
-// Generic function to parse MDX file
-function parseMDXFile<T>(filePath: string): T {
+// Generic function to parse MDX file with image path processing
+function parseMDXFile<T>(filePath: string, imageFields: string[] = []): T {
   const fileContents = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  // Apply basePath to specified image fields
+  const processedData = { ...data }
+  imageFields.forEach((field) => {
+    if (processedData[field]) {
+      processedData[field] = withBasePath(processedData[field])
+    }
+  })
+
   return {
-    ...data,
+    ...processedData,
     content,
   } as T
 }
@@ -35,7 +56,7 @@ export function getAllBlogPosts(): BlogPost[] {
   const posts = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'blog', filename)
-      return parseMDXFile<BlogPost>(filePath)
+      return parseMDXFile<BlogPost>(filePath, ['coverImage'])
     })
     .filter((post) => !post.draft)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -50,7 +71,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     return null
   }
 
-  return parseMDXFile<BlogPost>(filePath)
+  return parseMDXFile<BlogPost>(filePath, ['coverImage'])
 }
 
 export function getBlogPostsByCategory(categorySlug: string): BlogPost[] {
@@ -109,7 +130,7 @@ export function getAllEvents(): Event[] {
   const events = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'events', filename)
-      return parseMDXFile<Event>(filePath)
+      return parseMDXFile<Event>(filePath, ['bannerImage'])
     })
     .filter((event) => !event.draft)
     .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
@@ -124,7 +145,7 @@ export function getEventBySlug(slug: string): Event | null {
     return null
   }
 
-  return parseMDXFile<Event>(filePath)
+  return parseMDXFile<Event>(filePath, ['bannerImage'])
 }
 
 export function getUpcomingEvents(limit?: number): Event[] {
@@ -142,7 +163,7 @@ export function getAllCourses(): Course[] {
   const courses = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'courses', filename)
-      return parseMDXFile<Course>(filePath)
+      return parseMDXFile<Course>(filePath, ['coverImage'])
     })
     .filter((course) => !course.draft)
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
@@ -157,7 +178,7 @@ export function getCourseBySlug(slug: string): Course | null {
     return null
   }
 
-  return parseMDXFile<Course>(filePath)
+  return parseMDXFile<Course>(filePath, ['coverImage'])
 }
 
 export function getCoursesByCategory(categorySlug: string): Course[] {
@@ -192,7 +213,7 @@ export function getAllTeamMembers(): TeamMember[] {
   const members = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'team', filename)
-      return parseMDXFile<TeamMember>(filePath)
+      return parseMDXFile<TeamMember>(filePath, ['avatarImage'])
     })
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
 
@@ -206,7 +227,7 @@ export function getTeamMemberBySlug(slug: string): TeamMember | null {
     return null
   }
 
-  return parseMDXFile<TeamMember>(filePath)
+  return parseMDXFile<TeamMember>(filePath, ['avatarImage'])
 }
 
 // ============ TESTIMONIALS ============
@@ -217,7 +238,7 @@ export function getAllTestimonials(): Testimonial[] {
   const testimonials = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'testimonials', filename)
-      return parseMDXFile<Testimonial>(filePath)
+      return parseMDXFile<Testimonial>(filePath, ['avatarImage'])
     })
     .filter((testimonial) => testimonial.active)
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
@@ -233,7 +254,7 @@ export function getAllPartners(): Partner[] {
   const partners = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'partners', filename)
-      return parseMDXFile<Partner>(filePath)
+      return parseMDXFile<Partner>(filePath, ['logoImage'])
     })
     .filter((partner) => partner.active)
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
@@ -249,7 +270,7 @@ export function getAllSchools(): School[] {
   const schools = files
     .map((filename) => {
       const filePath = path.join(contentDirectory, 'schools', filename)
-      return parseMDXFile<School>(filePath)
+      return parseMDXFile<School>(filePath, ['image'])
     })
     .filter((school) => school.active)
     .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
